@@ -1,0 +1,90 @@
+<ion-view view-title="chartjs统计图">
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mcfly.jpg">
+                <h2>折线图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas  class="chart chart-line"  data="hostilityData['数据']"
+                         labels="hostilityData['标签']" legend="false"  click="negativeOnClick">
+                         <!--colours="['#F7464A']" options="{scaleLineWidth: 1,scaleLineColor: 'none',tooltipFillColor: 'rgba(255,255,255,0.5)',-->
+                <!--scaleCenterBackgroudColor: '#fe4b4c',scaleFontSize: 14,tooltipFontColor: '#333',-->
+                <!--scaleBottomBackgroudColor: '#fe4b4c',scaleLeftBackgroudColor: '#d04344',scaleFontColor: '#fff', tooltipTitleFontColor: '#fff',scaleGridLineColor:'rgba(255,255,255,0.2)',scaleLineColor:'rgba(255,255,255,.01)'}"-->
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/max.jpg">
+                <h2>柱状图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas  class="chart chart-bar"  data="hostilityData['数据']"
+                         labels="hostilityData['标签']" legend="false"  click="negativeOnClick">
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mike.png">
+                <h2>雷达图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas  class="chart chart-radar"  data="hostilityData['数据']"
+                         labels="hostilityData['标签']" legend="false"  click="negativeOnClick">
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/perry.png">
+                <h2>饼图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas id="pie" class="chart chart-pie"
+                        chart-data="piedata" chart-labels="pielabels">
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/ben.png">
+                <h2>极地区域图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas id="polar-area" class="chart chart-polar-area"
+                        chart-data="pareadata" chart-labels="parealabels">
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/max.jpg">
+                <h2>圆环图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="piedata" chart-labels="pielabels">
+                </canvas>
+                <p></p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

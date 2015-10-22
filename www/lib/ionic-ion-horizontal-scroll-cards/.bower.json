@@ -1,0 +1,28 @@
+{
+  "name": "ionic-ion-horizontal-scroll-cards",
+  "homepage": "https://github.com/drewrygh/ionic-ion-horizontal-scroll-cards",
+  "authors": [
+    "Drew Rygh <hello@drewrygh.com> (http://drewrygh.com)"
+  ],
+  "description": "Horizontal scroll cards inspired by the Spotify app.",
+  "main": [
+    "ionic.hscrollcards.js"
+  ],
+  "keywords": [
+    "mobile",
+    "html5",
+    "ionic",
+    "horizontal scroll"
+  ],
+  "license": "MIT",
+  "private": false,
+  "_release": "125fea5e16",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "125fea5e168d7f68addaa6b3b0ddb4d0f5f57456"
+  },
+  "_source": "git://github.com/drewrygh/ionic-ion-horizontal-scroll-cards.git",
+  "_target": "*",
+  "_originalSource": "ionic-ion-horizontal-scroll-cards"
+}

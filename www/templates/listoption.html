@@ -1,0 +1,26 @@
+<ion-view view-title="向左滑动 更多操作">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-minus-outline"
+                ng-click="data.showDelete = !data.showDelete; data.showReorder = false" >
+        </button>
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+            重排序
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+            <ion-item ng-repeat="item in items" item="item" class="item-remove-animate">
+                {{ item.id }}. {{ item.title }}
+                <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
+                </ion-delete-button>
+                <ion-option-button class="button-assertive" ng-click="edit(item)">
+                    编辑
+                </ion-option-button>
+                <ion-option-button class="button-calm" ng-click="share(item)">
+                    分享
+                </ion-option-button>
+                <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

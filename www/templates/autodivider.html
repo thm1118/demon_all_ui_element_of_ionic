@@ -1,0 +1,17 @@
+<ion-view>
+<ion-content>
+    <ion-list>
+        <div auto-list-divider auto-list-divider-value="{{item.user.name.first}}"
+             class="item item-avatar" ng-repeat="item in items">
+            <img src="{{item.user.picture.thumbnail}} " />
+            <h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
+            <p>{{item.user.location.city}} {{item.user.password}}</p>
+        </div>
+        <!--<ion-item auto-list-divider auto-list-divider-value="{{item.user.gender}}" auto-list-divider-function="dividerFunction" class="item-avatar" ng-repeat="item in items">
+		<img src="{{item.user.picture.thumbnail}} " />
+		<h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
+		<p>{{item.user.location.city}} {{item.user.password}}</p>
+		</ion-item>-->
+    </ion-list>
+</ion-content>
+</ion-view>

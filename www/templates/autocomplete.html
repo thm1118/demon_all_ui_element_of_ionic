@@ -1,0 +1,30 @@
+<ion-view title="输入自动完成">
+    <ion-content>
+        <form>
+
+            <label class="item item-input">
+                <span class="input-label">多选择自动完成</span>
+                <ion-autocomplete ng-model="model"
+                                  item-value-key="name"
+                                  item-view-value-key="view"
+                                  items-method="getTestItems(query)"
+                                  items-method-value-key="items"
+                                  multiple-select="true"
+                                  placeholder="输入关键字 ..."
+                                  items-clicked-method="itemsClicked(callback)"/>
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">多选择自动完成值</span>
+                <input type="text" class="ion-autocomplete-test-model" ng-model="model" autocomplete="off">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">多选择自动完成点击回调</span>
+                <input type="text" class="ion-autocomplete-callback-model" ng-model="callbackValueModel"
+                       autocomplete="off">
+            </label>
+
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+
+<ion-view>
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button class="button button-positive button-clear no-animation"-->
+                <!--ng-click="previous()" ng-if="data.slideIndex > 0">-->
+            <!--上一个-->
+        <!--</button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-nav-buttons side="right">
+        <button class="button button-positive button-clear no-animation"
+                ng-click="next()" ng-if="data.slideIndex < data.numViewableSlides - 1">
+            下一个
+        </button>
+    </ion-nav-buttons>
+
+    <ion-slide-box auto-play="true" on-slide-changed="slideChanged(index)">
+
+        <ion-slide  ng-repeat="slide in data.slides | filter:{viewable : true}">
+            <div ng-include src="slide.template"></div>
+        </ion-slide>
+        <ion-pager>
+
+        </ion-pager>
+    </ion-slide-box>
+
+</ion-view>
+
+<script id="firstSlide.html" type="text/ng-template">
+    <h1>第一个幻灯片!</h1>
+    <button class="button button-assertive" ng-click="showBonus()" ng-if="data.initialInstruction">添加额外幻灯片</button>
+    <p class="padding" ng-if="data.initialInstruction">注意首次加载时一共3个幻灯片</p>
+    <p class="padding" ng-if="data.secondInstruction">现在有了4个幻灯片</p>
+
+</script>
+
+<script id="secondSlide.html" type="text/ng-template">
+    <h1>这是第二个!</h1>
+</script>
+
+<script id="bonusSlide.html" type="text/ng-template">
+    <h1>额外的幻灯片!</h1>
+</script>
+
+<script id="thirdSlide.html" type="text/ng-template">
+    <h1>第三个!</h1>
+
+</script>
+
+
+
+

@@ -1,0 +1,20 @@
+<ion-nav-bar frosted-bar title="'Blurred...man!'" class="bar-frosted">
+    <ion-nav-back-button frosted-bar title="'Blurred...man!'" type="bar-frosted">
+        <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view>
+    <ion-nav-title>
+       <h1>毛玻璃</h1>
+    </ion-nav-title>
+    <ion-content  padding="true" start-y="120">
+        <ol class="messages">
+            <li ng-repeat="message in messages"  ng-bind-html="message.content">
+            </li>
+        </ol>
+    </ion-content>
+    <footer class="bar bar-footer bar-frosted">
+        <button class="button button-clear button-positive" ng-click="add()">添加消息</button>
+    </footer>
+
+</ion-view>

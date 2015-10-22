@@ -1,0 +1,17 @@
+<ion-view view-title="上拉下拉刷新">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="scrollToTop()" >回到顶部</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item collection-repeat="item in items">
+                <h2>随机KEY: {{item.random}}</h2>
+                <p>数据生成时间 : {{item.time}}</p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

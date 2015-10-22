@@ -1,0 +1,70 @@
+<ion-view>
+    <ion-content class="padding">
+        <button class="button button-block button-dark" ng-click="showOptions()">
+            从底部显示选项
+        </button>
+
+        <button class="button button-block button-dark" ng-click="openPopover($event, '黑色')">
+            暗夜按钮
+        </button>
+        <button class="button button-block button-assertive" ng-click="openPopover($event, '红色')">
+            红色按钮
+        </button>
+        <button class="button button-block button-calm" ng-click="openPopover($event, '天蓝')">
+            天蓝按钮
+        </button>
+
+        <div class="card" ng-show="state.cancel">
+            <div class="item item-divider">
+                你取消了
+            </div>
+            <div class="item item-text-wrap">
+                想看看隐藏内容的话
+                <button class="button button-assertive button-block" ng-click="prompt()">
+                   请输入
+                </button>
+            </div>
+        </div>
+        <div class="card" ng-show="state.success">
+            <div class="item item-divider">
+                这就是隐藏内容
+            </div>
+            <div class="item item-text-wrap">
+                <button class="button button-positive button-block" ng-click="confirm()">
+                    显示确认对话框
+                </button>
+                <button class="button button-positive button-block" ng-click="alert()">
+                    显示警告框
+                </button>
+            </div>
+        </div>
+    </ion-content>
+    <script id="button-options.html" type="text/ng-template">
+        <ion-popover-view>
+            <ion-header-bar>
+                <h1 class="title">{{type}} 选项</h1>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list">
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-ionic"></i> 选项一
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-help-buoy"></i> 选项二
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-hammer"></i> 选项三
+                    </a>
+                    <a href="#" class="item item-icon-left" ng-click="closePopover()">
+                        <i class="icon ion-close"></i> 关闭
+                    </a>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+    <script type="text/ng-template" id="pin-template.html">
+        <input type="password" ng-model="data.pin">
+        <label ng-show="error.empty" class="assertive text-center block padding">请输入进入码 1234</label>
+        <label ng-show="error.invalid" class="assertive text-center block padding">无效输入，请重试</label>
+    </script>
+</ion-view>

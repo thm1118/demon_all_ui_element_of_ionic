@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-content class="has-header padding" ng-controller="MediaCtrl">
+        <br><br>
+
+        <div class="item item-divider">
+            <i class="ion-images"></i>
+            相册
+        </div>
+
+        <a class="item item-list-detail">
+            <ion-scroll direction="x">
+                <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+            </ion-scroll>
+        </a>
+
+        <br><br>
+        <div class="button-bar">
+            <button class="button button-outline button-positive" ng-click="playVideo()">视频播放</button>
+        </div>
+    </ion-content>
+</ion-view>

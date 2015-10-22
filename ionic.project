@@ -1,0 +1,8 @@
+{
+  "name": "angular seed with ionic",
+  "app_id": "",
+  "documentRoot": "www",
+  "createDocumentRoot": true,
+  "watchPatterns": ["dist/**/*"],
+  "gulpStartupTasks": ["dev:pipeline" ]
+}

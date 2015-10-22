@@ -1,0 +1,92 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">菜单栏</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item menu-close href="#/app/url_qrcode">
+                    二维码地址
+                </ion-item>
+                <ion-item menu-close ng-click="login()">
+                    登录
+                </ion-item>
+                <ion-item menu-close href="#/app/formelements">
+                    表单元素
+                </ion-item>
+                <ion-item menu-close href="#/app/listrefresh">
+                    上下拉刷新
+                </ion-item>
+                <ion-item menu-close href="#/app/actionsheet">
+                    弹出层
+                </ion-item>
+                <ion-item menu-close href="#/app/datepicker">
+                    日期时间选择
+                </ion-item>
+                <ion-item menu-close href="#/app/listoption">
+                    选项按钮列表
+                </ion-item>
+                <ion-item menu-close href="#/app/layout">
+                    布局
+                </ion-item>
+                <ion-item menu-close href="#app/tabs/dash">
+                    tab切换
+                </ion-item>
+                <ion-item menu-close href="#/app/slidebox">
+                    动态幻灯片
+                </ion-item>
+                <ion-item menu-close href="#/view1">
+                    视图跳转
+                </ion-item>
+                <ion-item menu-close href="#/app/search">
+                    查找
+                </ion-item>
+                <ion-item menu-close href="#/app/browse">
+                    浏览
+                </ion-item>
+                <ion-item menu-close href="#/app/playlists">
+                    简单列表
+                </ion-item>
+                <ion-item menu-close href="#/app/gesture">
+                    手势事件
+                </ion-item>
+                <ion-item menu-close href="#/message">
+                    消息聊天--毛玻璃效果
+                </ion-item>
+                <ion-item menu-close href="#/app/autocomplete">
+                    输入自动完成
+                </ion-item>
+                <ion-item menu-close href="#/app/autodivider">
+                    列表自动分组
+                </ion-item>
+                <ion-item menu-close href="#/app/hscroll">
+                    水平滚动图片
+                </ion-item>
+                <ion-item menu-close href="#/app/gallery">
+                    相册
+                </ion-item>
+                <ion-item menu-close href="#/app/mediapopup">
+                    媒体相册
+                </ion-item>
+                <ion-item menu-close href="#/app/echart">
+                    EChart统计图
+                </ion-item>
+                <ion-item menu-close href="#/app/chartjs">
+                    chartjs统计图
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

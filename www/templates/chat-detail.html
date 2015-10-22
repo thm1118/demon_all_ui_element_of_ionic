@@ -1,0 +1,11 @@
+<ion-view view-title="{{chat.name}}">
+  <ion-content class="padding">
+    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+    <p>
+      {{chat.lastText}}
+    </p>
+  </ion-content>
+  <ion-footer-bar class="bar-assertive ">
+    <button class="button icon-left ion-ios-arrow-back button-clear" ui-sref="app.tabs.chats">返回到列表</button>
+  </ion-footer-bar>
+</ion-view>

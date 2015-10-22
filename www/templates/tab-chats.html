@@ -1,0 +1,23 @@
+<ion-view view-title="列表项左滑删除----图片延时加载">
+  <ion-content lazy-scroll>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right"
+                collection-repeat="chat in chats" type="item-text-wrap" href="#/app/tabs/chats/{{chat.id}}">
+        <!--注意这里的图片延迟加载，scroll需要配置 lazy-scroll-->
+        <img image-lazy-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.id}}</p>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          删除
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+  </ion-content>
+  <ion-footer-bar class="bar-assertive ">
+    <button class="button icon-left ion-ios-arrow-back button-clear" ui-sref="app.listrefresh">返回到主页</button>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view view-title="验证凭据">
+    <ion-nav-buttons side="right">
+        <button class="button icon-left ion-log-out button-stable" ng-click="logout()">登出</button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding">
+        <div class="row"><div class="col text-center">
+            <h3 class="title">当前用户： {{username}}</h3>
+            登录通过后，在本地保存服务端给的凭据，并且，与服务端的每次交互都需要在头中传递凭据（除了无需认证的资源）
+            <br><br><br>
+            <button class="button button-full button-positive" ng-click="performValidRequest()">
+                创建请求，模拟服务端有效响应 200
+            </button>
+            <button class="button button-full button-energized" ng-click="performUnauthorizedRequest()">
+                创建请求，模拟服务端未认证响应 403
+            </button>
+            <button class="button button-full button-assertive" ng-click="performInvalidRequest()">
+                创建请求，模拟服务端无效凭据的响应 401
+            </button>
+            <br><br>
+            <h4>{{response}}</h4>
+        </div></div>
+    </ion-content>
+</ion-view>

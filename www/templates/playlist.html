@@ -1,0 +1,14 @@
+<ion-view view-title="详细信息">
+    <ion-header-bar class="bar-assertive bar-subheader">
+        <h3 ng-bind="phone.name"></h3>
+    </ion-header-bar>
+    <ion-content class="has-subheader" lazy-scroll>
+        <p ng-bind="phone.description"></p>
+
+        <div class="item item-borderless" ng-repeat="img in phone.images">
+            <div class="text-center">
+                <img image-lazy-src="{{img}}">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,91 @@
+<ion-view view-title="百度统计图EChart">
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mcfly.jpg">
+                <h2>折线图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <line-chart config="lineconfig" data="data"></line-chart>
+                <line-chart config="lienconfig" data="multiple"></line-chart>
+                <p>点击折线点或图例, 查看具体数据，或显示隐藏。</p>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/max.jpg">
+                <h2>柱状图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <bar-chart config="barconfig" data="data"></bar-chart>
+                <bar-chart config="barconfig" data="multiple"></bar-chart>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mike.png">
+                <h2>面积图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <area-chart config="areaconfig" data="data"></area-chart>
+                <area-chart config="areaconfig" data="multiple"></area-chart>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/perry.png">
+                <h2>饼图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <pie-chart config="pieconfig" data="data"></pie-chart>
+                <donut-chart config="pieconfig" data="data"></donut-chart>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mcfly.jpg">
+                <h2>地图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <map-chart config="mapconfig.nation" data="mapdata.nation"></map-chart>
+                <map-chart config="mapconfig.province" data="mapdata.province" ng-show="mapshowDetail"></map-chart>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/max.jpg">
+                <h2>进度图</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <gauge-chart config="guageconfig" data="data"></gauge-chart>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/mike.png">
+                <h2>实时更新折线图---这里有bug，可能是组件问题，日后调试</h2>
+                <p>2015年9月1号</p>
+            </div>
+            <div class="item item-body full-image">
+                <line-chart config="ajaxconfig" data="ajaxdata" width="400" height="320"></line-chart>
+                <p>每6秒更新一次数据</p>
+                <p>
+                    <a href="#" class="subdued">1 赞</a>
+                    <a href="#" class="subdued">5 评论</a>
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+{
+  "css": [
+    "lib/ionic/css/ionic",
+    "lib/angular-chart.js/dist/angular-chart",
+    "css/ionic.contrib.frostedGlass",
+    "lib/ion-autocomplete/dist/ion-autocomplete",
+    "lib/ionic-filter-bar/dist/ionic.filter.bar",
+    "lib/ion-gallery/dist/ion-gallery",
+    "lib/ionic-ion-horizontal-scroll-cards/examples/www/css/hscrollcards",
+    "css/style"
+  ],
+
+  "js": [
+    "lib/ionic/js/ionic.bundle",
+    "lib/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch",
+    "lib/angular-resource/angular-resource",
+    "lib/angular-mocks/angular-mocks",
+    "lib/qrcode-generator/js/qrcode",
+    "lib/qrcode-generator/js/qrcode_UTF8",
+    "lib/angular-qrcode/angular-qrcode",
+    "lib/ionic-ion-horizontal-scroll-cards/ionic.hscrollcards",
+    "lib/ion-autocomplete/dist/ion-autocomplete",
+    "lib/ionic-ion-autoListDivider",
+    "lib/ion-gallery/dist/ion.gallery",
+    "lib/ionic-filter-bar/dist/ionic.filter.bar",
+    "lib/lodash.mobile",
+    "lib/moment/moment",
+    "lib/angular-moment/angular-moment",
+    "lib/ionic.contrib.frostedGlass",
+    "lib/baidu-echarts/build/echarts-plain-original",
+    "lib/baidu-echarts/build/echarts-plain-map",
+    "lib/angular-echarts/dist/angular-echarts",
+    "lib/Chart.js/Chart",
+    "lib/angular-chart.js/dist/angular-chart",
+    "lib/ionic-datepicker/dist/ionic-datepicker.bundle.min",
+    "lib/ion-image-lazy-load/ionic-image-lazy-load",
+    "js/app",
+    "js/constants",
+    "js/controllers",
+    "js/services"
+  ]
+}

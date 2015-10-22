@@ -1,0 +1,146 @@
+/* Empty. Add your own CSS if you like */
+body, html {
+    cursor: url('../img/finger.png'), auto; }
+
+h2.story-title{
+    white-space: normal;
+    height: 3.6em
+}
+
+div.blue{
+    background-color: #387ef5;
+    max-height: 100%;
+}
+
+.slider {
+    height: 100%;
+}
+
+.slider-slide {
+    padding-top: 80px;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+
+.messages {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+.messages li {
+    display:block;
+    float:left;
+    clear:both;
+    max-width:65%;
+    margin:0 0 1rem 0;
+    padding:0;
+}
+
+.messages li:nth-child(even) {
+    float:right;
+}
+
+.messages li:nth-child(even) img {
+    float:right;
+}
+
+.messages p {
+    border-radius:.75rem;
+    background:#e6e5eb;
+    color:#383641;
+    padding:.6875rem;
+    margin:0;
+    font-size:.875rem;
+}
+
+.messages li:nth-child(even) p {
+    background:#158ffe;
+    color:#fff;
+}
+
+.messages img {
+    display:block;
+    max-width:65%;
+    border-radius:.75rem;
+}
+
+div.hscroller {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.wide-item {
+    width: 1000px;
+    /*  overflow-x: scroll; /*
+    /*  -webkit-overflow-scrolling: touch;  */
+}
+
+
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.transparent {
+    background: transparent !important;
+}
+
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.desc {
+    background: #FFFFFF;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    top: 90%;
+    position: fixed;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.image-list-thumb {
+    padding: 2px 2px 2px 2px;
+    height: 100px;
+}
+
+
+.centerme {
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+}
+
+.fullscreen-player {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+}

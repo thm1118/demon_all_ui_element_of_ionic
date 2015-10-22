@@ -1,0 +1,13 @@
+<ion-view view-title="简单列表  图片延时加载">
+  <ion-content lazy-scroll>
+    <ion-list>
+      <ion-item class="item-remove-animate  item-icon-right item-thumbnail-left"
+                collection-repeat="phone in phones" href="#/app/playlists/{{phone.id}}">
+        <img  class="thumb" image-lazy-src="{{phone.imageUrl}}">
+        <div>{{phone.name}}</div>
+        <p>{{phone.snippet}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

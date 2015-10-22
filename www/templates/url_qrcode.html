@@ -1,0 +1,38 @@
+<ion-view view-title="二维码地址">
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img image-lazy-src="img/mcfly.jpg">
+                <h2>扫描二维码，体验移动端</h2>
+                <p>2015年7月31号</p>
+            </div>
+
+            <div class="item item-body full-image">
+                <qrcode  version=5 error-correction-level="M" size=300 data="{{bar}}" href="{{bar}}"></qrcode>
+                <p>
+                    注意url为localhost等本地地址时的无法访问情况.
+                </p>
+                <p>
+                    <a href="#" class="subdued">1 赞</a>
+                    <a href="#" class="subdued">5 评论</a>
+                </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i>
+                    赞
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    评论
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    分享
+                </a>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

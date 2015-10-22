@@ -1,0 +1,47 @@
+{
+  "name": "ionic-seed",
+  "version": "1.0.0",
+  "description": "angular seed with ionic",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "del": "~1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-inject": "~1.5.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-protractor": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace-task": "*",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "~1.2.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "~4.3.4",
+    "imagemin-jpegtran": "^4.3.0",
+    "imagemin-pngquant": "^4.1.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "lodash": "~3.10.1",
+    "path": "^0.11.14",
+    "phantomjs": "^1.9.18",
+    "protractor": "^2.1.0",
+    "requirejs": "^2.1.20",
+    "run-sequence": "~1.1.2",
+    "shelljs": "^0.5.3",
+    "streamqueue": "^1.1.0",
+    "vinyl-paths": "~1.0.0",
+    "yargs": "*"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device"
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ]
+}

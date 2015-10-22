@@ -1,0 +1,23 @@
+<!--
+创建带图标和标题的tab，使用样式tabs-positive
+每个tab的 子视图<ion-nav-view> 指令拥有自己的导航历史，而且也能控制自己的视图进出
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide': isHideTabBar}">
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="状态" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" ui-sref="app.tabs.dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Chats Tab -->
+  <ion-tab title="对话" badge="3"  badge-style="badge-assertive" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/app/tabs/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="设置" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/app/tabs/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>

@@ -1,0 +1,78 @@
+<ion-view view-title="显示子头部">
+    <ion-header-bar class="bar bar-assertive bar-header">
+        <button class="button button-icon icon ion-battery-full"></button>
+        <h2 class="title">这个头无法显示出来</h2>
+    </ion-header-bar>
+    <ion-header-bar class="bar-balanced bar-subheader">
+        <button class="button button-icon icon ion-battery-full"></button>
+        <h2 class="title">子头可以显示{{loginData.username}}</h2>
+    </ion-header-bar>
+    <!-- 注意这里 has-subheader 表示计算top 时包含了子头部-->
+    <ion-content  class="has-subheader">
+      <div class="list">
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-email"></i>
+              Check mail
+          </a>
+
+          <a class="item item-icon-left item-icon-right" href="#">
+              <i class="icon ion-chatbubble-working"></i>
+              Call Ma
+              <i class="icon ion-ios-telephone-outline"></i>
+          </a>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-mic-a"></i>
+              Record album
+    <span class="item-note">
+      Grammy
+    </span>
+          </a>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-person-stalker"></i>
+              Friends
+              <span class="badge badge-assertive">0</span>
+          </a>
+
+      </div>
+
+      <div class="list card">
+
+          <div class="item item-avatar">
+              <img src="img/mcfly.jpg">
+              <h2>Marty McFly</h2>
+              <p>2015年7月31号</p>
+          </div>
+
+          <div class="item item-body">
+              <img class="full-image" src="img/delorean.jpg">
+              <p>
+                  这是类似 "Facebook" 的样式卡. 头部是列表项的缩略图,内容部分是 一张图片和文本段落。底部是tab。
+              </p>
+              <p>
+                  <a href="#" class="subdued">1 赞</a>
+                  <a href="#" class="subdued">5 评论</a>
+              </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                  <i class="icon ion-thumbsup"></i>
+                  赞
+              </a>
+              <a class="tab-item" href="#">
+                  <i class="icon ion-chatbox"></i>
+                  评论
+              </a>
+              <a class="tab-item" href="#">
+                  <i class="icon ion-share"></i>
+                  分享
+              </a>
+          </div>
+
+      </div>
+  </ion-content>
+
+</ion-view>

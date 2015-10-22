@@ -1,0 +1,201 @@
+<ion-view>
+
+    <!--<ion-header-bar class="bar-assertive">-->
+        <!--<div class="buttons">-->
+            <!--<button class="button">Left</button>-->
+        <!--</div>-->
+        <!--<h1 class="title">Ionic Blank Starter</h1>-->
+        <!--<div class="buttons">-->
+            <!--<button class="button">Right</button>-->
+        <!--</div>-->
+    <!--</ion-header-bar>-->
+    <!-- header example 2 -->
+    <ion-content class="padding">
+        <!-- content example 1 -->
+        <button class="button" ng-click="toggleOvelay()">
+            默认样式。点我
+        </button>
+        <button class="button button-full button-positive">
+            Full Width Block Button
+        </button>
+        <button class="button button-small button-assertive">
+            Small Button
+        </button>
+        <button class="button button-large button-calm">
+            Large Button
+        </button>
+        <button class="button button-outline button-dark">
+            Outlined Button
+        </button>
+        <button class="button button-clear button-energized">
+            Clear Button
+        </button>
+        <button class="button icon-left ion-star button-balanced">
+            Icon Button
+        </button>
+        <!-- content example 1 -->
+        <!-- content example 2 -->
+        <div class="list">
+            <div class="item">
+                Item 1
+            </div>
+            <div class="item">
+                Item 2
+            </div>
+            <div class="item">
+                Item 3
+            </div>
+        </div>
+        <!-- content example 2 -->
+        <!-- content example 3 -->
+        <div class="list card">
+            <div class="item text-center">
+                <h1>Today's Weather</h1>
+            </div>
+            <div class="item item-body">
+                <p>
+                <div class="text-center">
+                    <i class="icon ion-ios-partlysunny" style="font-size:128px"></i>
+                </div>
+                <div class="text-center">
+                    <h2>Partly Sunny</h2>
+                </div>
+                </p>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i> Like
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i> Comment
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i> Share
+                </a>
+            </div>
+        </div>
+        <!-- content example 3 -->
+        <!-- content example 4 -->
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password">
+            </label>
+        </div>
+        <!-- content example 4 -->
+        <!-- content example 5 -->
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="Username">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password">
+            </label>
+        </div>
+        <!-- content example 5 -->
+        <!-- content example 6 -->
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search...">
+            </label>
+        </div>
+        <!-- content example 6 -->
+        <!-- content example 7 -->
+        <div class="list">
+            <label class="item item-input">
+                <textarea placeholder="This is a &lt;textarea&gt; &lt;/textarea&gt;"></textarea>
+            </label>
+            <label class=" item item-input item-select ">
+                <div class="input-label ">
+                    Gender
+                </div>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </label>
+        </div>
+        <!-- content example 7 -->
+        <!-- content example 8 -->
+        <ul class="list">
+            <li class="item item-checkbox">
+                <label class="checkbox checkbox-assertive">
+                    <input type="checkbox">
+                </label>
+                Apples
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Oranges
+            </li>
+            <li class="item item-checkbox checkbox-energized">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Lemons
+            </li>
+        </ul>
+        <!-- content example 8 -->
+        <!-- content example 9 -->
+        <ul class="list">
+            <li class="item item-toggle">
+                Wifi
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Bluetooth
+                <label class="toggle toggle-positive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Aeroplane Mode
+                <label class="toggle toggle-calm">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <!-- content example 9 -->
+        <!-- content example 10 -->
+        <<div class="list">
+        <div class="item range range-positive">
+            <i class="icon ion-ios-sunny-outline"></i>
+            <input type="range" name="volume" min="0" max="100" value="33">
+            <i class="icon ion-ios-sunny"></i>
+        </div>
+    </div>
+
+        <div class="padding text-center">
+            <h3>为我评分</h3>
+            <div>
+                <a href="javascript:" ng-repeat="r in ratingArr" class="padding" style="text-decoration:none;">
+                    <i class="icon {{r.icon}}" ng-click="setRating(r.value)"></i>
+                </a>
+            </div>
+        </div>
+        <!-- content example 10 -->
+    </ion-content>
+    <ion-footer-bar class="bar-assertive ">
+        <div class="title ">Footer</div>
+    </ion-footer-bar>
+</ion-view>
