@@ -19,6 +19,13 @@ IONIC 功能全演示
 ![幻灯](screenshot/slide.png)
 ![图片水平滚动](screenshot/hscroll.png)
 ![毛玻璃效果](screenshot/blure.png)
+![2000条数据搜索](screenshot/search.png)
+![输入自动完成](screenshot/autocomplete.png)
+![列表自动分组](screenshot/autogroup.png)
+![媒体相册](screenshot/galaxy.png)
+![chartjs统计图](screenshot/chartjs.png)
+![百度统计图](screenshot/echat.png)
+![图片延时加载](screenshot/imageload.png)
 
 ## 基础环境
 
