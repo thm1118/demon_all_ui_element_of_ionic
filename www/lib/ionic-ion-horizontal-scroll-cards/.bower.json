@@ -22,7 +22,7 @@
     "branch": "master",
     "commit": "125fea5e168d7f68addaa6b3b0ddb4d0f5f57456"
   },
-  "_source": "git://github.com/drewrygh/ionic-ion-horizontal-scroll-cards.git",
+  "_source": "https://github.com/drewrygh/ionic-ion-horizontal-scroll-cards.git",
   "_target": "*",
   "_originalSource": "ionic-ion-horizontal-scroll-cards"
 }

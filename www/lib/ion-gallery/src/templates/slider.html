@@ -1,6 +1,6 @@
-<ion-modal-view class="blackBackground imageView">
+<ion-modal-view class="imageView">
   <ion-header-bar class="headerView" ng-show="!hideAll">
-    <button class="button button-outline button-light close-btn" ng-click="closeModal()">Done</button>
+    <button class="button button-outline button-light close-btn" ng-click="closeModal()">{{::actionLabel}}</button>
   </ion-header-bar>
     
   <ion-content class="has-no-header" scroll="false">
@@ -14,8 +14,9 @@
                     scrollbar-y="false"
                     ion-slide-action
                     delegate-handle="slide-{{$index}}"
+                    overflow-scroll="false"
                     >
-        <div class="item item-image centerPictureVertical gallery-slide-view">
+        <div class="item item-image gallery-slide-view">
           <img ng-src="{{single.src}}">
         </div>
         <div ng-if="single.sub.length > 0" class="image-subtitle" ng-show="!hideAll">

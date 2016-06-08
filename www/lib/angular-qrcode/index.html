@@ -108,7 +108,7 @@
     }
   </style>
 </head>
-<body data-ng-init="foo='here comes qr!';bar='https://github.com/monospaced/angular-qrcode';v=4;e='M';s=274;">
+<body data-ng-init="foo='here comes qr!';bar='https://github.com/monospaced/angular-qrcode';v=5;e='M';s=274;">
 
   <h1>Angular QR Code</h1>
 
@@ -141,7 +141,7 @@
 
   <h2>Linked</h2>
 
-  <qrcode version="{{v}}" error-correction-level="{{e}}" size="{{s}}" data="{{bar}}" href="{{bar}}"></qrcode>
+  <qrcode version="{{v}}" error-correction-level="H" size="274" data="{{bar}}" href="{{bar}}"></qrcode>
 
   <form>
     <p>
@@ -158,7 +158,7 @@
 
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="//monospaced.github.io/bower-qrcode-generator/js/qrcode.js"></script>
   <script src="//monospaced.github.io/bower-qrcode-generator/js/qrcode_UTF8.js"></script>
   <script src="angular-qrcode.js"></script>

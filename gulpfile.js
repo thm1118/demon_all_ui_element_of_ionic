@@ -1,6 +1,7 @@
 var sh = require('shelljs');
 var fs = require('fs');
 var del = require('del');
+var vinylPaths = require('vinyl-paths');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
@@ -8,11 +9,10 @@ var _ = require('lodash');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 var minifyJS = require('gulp-uglify');
-var vinylPaths = require('vinyl-paths');
 var inject = require('gulp-inject');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
-var minifyCss = require('gulp-minify-css');
+var nano = require('gulp-cssnano');
 var replace = require('gulp-replace-task');
 var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -41,7 +41,7 @@ var paths = {
     src: {
         assetsFile: 'www/assets.json',
         index: 'www/index.html',
-        fonts: 'www/lib/ionic/fonts/**.*',
+        fonts: 'www/lib/ionic/release/fonts/**.*',
         imgs: 'www/img/**/**.*',
         jpgs:'www/img/**/**.jpg',
         pngs: 'www/img/**/**.png',
@@ -69,13 +69,15 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')
-        .pipe(sass({
-            errLogToConsole: true
-        }))
+        //.pipe(sass({
+        //    errLogToConsole: true
+        //}))
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./www/css/'))
-        .pipe(minifyCss({
-            keepSpecialComments: 0
-        }))
+        //.pipe(minifyCss({
+        //    keepSpecialComments: 0
+        //}))
+        .pipe(nano())
         .pipe(rename({extname: '.min.css'}))
         .pipe(gulp.dest('./www/css/'))
         .on('end', done);
@@ -245,7 +247,8 @@ gulp.task('dev:processCSS', function (done) {
     });
 
     return gulp.src(sources)
-        .pipe(sass({errLogToConsole: true}))
+        //.pipe(sass({errLogToConsole: true}))
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.distCSS))
 });
 
@@ -433,7 +436,8 @@ gulp.task('prod:precompileCSS', function (done) {
 
 gulp.task('prod:minifyCSS', function (done) {
     return gulp.src(paths.distCSS+'/application.css')
-        .pipe(minifyCss())
+        //.pipe(minifyCss())
+        .pipe(nano())
         .pipe(gulp.dest(paths.distCSS));
 });
 

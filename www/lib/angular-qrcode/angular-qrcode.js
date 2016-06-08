@@ -1,5 +1,5 @@
 /*
- * angular-qrcode v6.0.3
+ * angular-qrcode v6.2.1
  * (c) 2013 Monospaced http://monospaced.com
  * License: MIT
  */
@@ -49,7 +49,7 @@ angular.module('monospaced.qrcode', [])
             qr,
             $img,
             setVersion = function(value) {
-              version = Math.max(1, Math.min(parseInt(value, 10), 10)) || 4;
+              version = Math.max(1, Math.min(parseInt(value, 10), 40)) || 5;
             },
             setErrorCorrectionLevel = function(value) {
               errorCorrectionLevel = value in levels ? value : 'M';
@@ -129,7 +129,7 @@ angular.module('monospaced.qrcode', [])
         if (link) {
           link.className = 'qrcode-link';
           $canvas.wrap(link);
-          domElement = link;
+          domElement = domElement.firstChild;
         }
 
         setVersion(attrs.version);

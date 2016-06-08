@@ -3,14 +3,28 @@
 [![Bower version](https://badge.fury.io/bo/angular-chart.js.svg)](http://badge.fury.io/bo/angular-chart.js)
 [![npm version](https://badge.fury.io/js/angular-chart.js.svg)](http://badge.fury.io/js/angular-chart.js)
 [![Build Status](https://travis-ci.org/jtblin/angular-chart.js.png)](https://travis-ci.org/jtblin/angular-chart.js)
-[![Code Climate](https://codeclimate.com/github/jtblin/angular-chart.js/badges/gpa.svg)](https://codeclimate.com/github/jtblin/angular-chart.js)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/6aa5ba92f4984a24874e5976ee541623)](https://www.codacy.com/app/jtblin/angular-chart-js)
 [![Code Coverage](https://d3s6mut3hikguw.cloudfront.net/github/jtblin/angular-chart.js/badges/coverage.svg)](https://codeclimate.com/github/jtblin/angular-chart.js)
+[![npm](https://img.shields.io/npm/dm/angular-chart.js.svg?maxAge=2592000)](https://www.npmjs.com/package/angular-chart.js)
 
 Beautiful, reactive, responsive charts for Angular.JS using [Chart.js](http://www.chartjs.org/). 
 
 [Demo](http://jtblin.github.io/angular-chart.js/)
 
 # Installation
+
+## Chart.js 2.0 and 1.0.0-alpha branch
+
+This is the `1.0.0-alpha` branch which requires Chart.js 2.0.0 version. Following semantic versioning,
+there are numerous breaking changes in this version notably:
+
+* all options now need to use the `chart-` prefix
+* `chart-colours` is now `chart-colors` and `chart-get-colour` is now `chart-get-color`
+* chart types are in `camelCase` e.g. `line` and `polarArea`
+* legend is now a Chart.js option so the `chart-legend` attribute has been removed
+* events emitted on creation and update are now prefixed with `chart-` e.g. `chart-create`
+* `$scope.$apply` is not called anymore on mouse hover functions calls
+* obviously all Chart.js breaking changes as well in how options are set, etc.
 
 ### bower
 
@@ -23,7 +37,6 @@ Beautiful, reactive, responsive charts for Angular.JS using [Chart.js](http://ww
 ### cdn
 
     //cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js
-    //cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css
 
 ### manually
 
@@ -34,14 +47,14 @@ adding the dependencies for Angular and Chart.js first:
 
 ```html
 <head>
-  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+  ...
 <head>
 <body>
   ...
 </body>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/Chart.js/Chart.min.js"></script>
-  <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/Chart.js/Chart.min.js"></script>
+  <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 ```
 
 # Utilisation
@@ -49,20 +62,14 @@ adding the dependencies for Angular and Chart.js first:
 There are 6 types of charts so 6 directives: `chart-line`, `chart-bar`, `chart-radar`, `chart-pie`, 
 `chart-polar-area`, `chart-doughnut`.
 
-They all use mostly the same API (`[chart-]` indicates an optional but recommended prefix):
-
-- `[chart-]data`: series data
-- `[chart-]labels`: x axis labels (line, bar, radar) or series labels (pie, doughnut, polar area)
-- `[chart-]options`: chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
-- `[chart-]series`: (default: `[]`): series labels (line, bar, radar)
-- `[chart-]colours`: data colours (will use default colours if not specified)
-- `getColour`: function that returns a colour in case there are not enough (will use random colours if not specified)
-- `[chart-]click`: onclick event handler
-- `[chart-]hover`: onmousemove event handler
-- `[chart-]legend`: (default: `false`): show legend below the chart
-
-*DEPRECATION WARNING*: Note that all attributes which do *not* use the `[chart-]` prefix are deprecated 
-and may be removed in a future version.
+- `chart-data`: series data
+- `chart-labels`: x axis labels (line, bar, radar) or series labels (pie, doughnut, polar area)
+- `chart-options`: chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
+- `chart-series`: (default: `[]`): series labels (line, bar, radar)
+- `chart-colors`: data colors (will use default colors if not specified)
+- `chart-get-color`: function that returns a color in case there are not enough (will use random colors if not specified)
+- `chart-click`: onclick event handler
+- `chart-hover`: onmousemove event handler
 
 There is another directive `chart-base` that takes an extra attribute `chart-type` to define the type
 dynamically, see [stacked bar example](http://jtblin.github.io/angular-chart.js/examples/stacked-bars.html).
@@ -72,8 +79,8 @@ dynamically, see [stacked bar example](http://jtblin.github.io/angular-chart.js/
 ## Markup
 
 ```html
-<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" 
-	chart-legend="true" chart-series="series" chart-click="onClick"></canvas> 
+<canvas class="chart chart-line" chart-data="data" chart-labels="labels" 
+	chart-series="series" chart-click="onClick"></canvas> 
 ```
 
 ## Javascript
@@ -84,11 +91,11 @@ angular.module("app", ["chart.js"])
   .config(['ChartJsProvider', function (ChartJsProvider) {
     // Configure all charts
     ChartJsProvider.setOptions({
-      colours: ['#FF5252', '#FF8A80'],
+      chartColors: ['#FF5252', '#FF8A80'],
       responsive: false
     });
     // Configure all line charts
-    ChartJsProvider.setOptions('Line', {
+    ChartJsProvider.setOptions('line', {
       datasetFill: false
     });
   }])
@@ -114,20 +121,30 @@ angular.module("app", ["chart.js"])
 }]);
 ```
 
-## Reactive
+## AMD RequireJS
 
-angular-chart.js watch updates on data, series, labels, colours and options and will update, or destroy and recreate, 
+See [a simple AMD example](examples/amd.js)
+
+## CommonJS e.g. webpack
+
+Module should work with CommonJS out of the box e.g. [browserify](http://browserify.org/) or 
+[webpack](http://webpack.github.io/), see a [webpack example](examples/webpack.config.js).
+
+# Reactive
+
+angular-chart.js watch updates on data, series, labels, colors and options and will update, or destroy and recreate, 
 the chart on changes.
 
-## Events
+# Events
 
 angular-chart.js emits the following events on the `scope` and pass the chart as argument:
 
-* `create`: when chart is created
-* `update`: when chart is updated
+* `chart-create`: when chart is created
+* `chart-update`: when chart is updated
+* `chart-destroy`: when chart is destroyed
 
 ```
-$scope.$on('create', function (event, chart) {
+$scope.$on('chart-create', function (evt, chart) {
   console.log(chart);
 });
 ```
@@ -135,16 +152,34 @@ $scope.$on('create', function (event, chart) {
 **Note**: the event can be emitted multiple times for each chart as the chart can be destroyed and
 created multiple times during angular `watch` lifecycle.
 
-angular-chart.js listen to the scope `destroy` event and destroy the chart when it happens.
+angular-chart.js listens to the scope `$destroy` event and destroys the chart when it happens.
 
-## Colours
+# Colors
 
-There are a set of 7 default colours. Colours can be replaced using the `colours` attribute.
-If there is more data than colours, colours are generated randomly or can be provided 
-via a function through the `getColour` attribute.
+There are a set of 7 default colors. Colors can be replaced using the `colors` attribute.
+If there is more data than colors, colors are generated randomly or can be provided 
+via a function through the `getColor` attribute.
 
-Hex colours are converted to Chart.js colours automatically, 
+Hex colors are converted to Chart.js colors automatically, 
 including different shades for highlight, fill, stroke, etc.
+
+## Browser compatibility
+
+For IE8 and older browsers, you will need 
+to include [excanvas](https://code.google.com/p/explorercanvas/wiki/Instructions). 
+You will also need a [shim](https://github.com/es-shims/es5-shim) for ES5 functions.
+
+You also need to have  ```height``` and ```width``` attributes for the ```<canvas>``` tag of your chart if using IE8 and older browsers. If you *do not* have these attributes, you will need a 
+[getComputedStyle shim](https://github.com/Financial-Times/polyfill-service/blob/master/polyfills/getComputedStyle/polyfill.js) and the line ```document.defaultView = window;```, but there still may be errors (due to code in Chart.js).
+
+```html
+<head>
+<!--[if lt IE 9]>
+  <script src="excanvas.js"></script>
+  <script src="es5-shim.js"></script>
+<![endif]-->
+</head>
+```
 
 # Issues
 
@@ -157,32 +192,11 @@ Please check if issue exists first, otherwise open issue in [github](https://git
 **Ensure you add a link to a plunker, jsbin, or equivalent.** 
 Here is a [jsbin template](http://jsbin.com/dufibi/3/edit?html,js,output) for convenience.
 
-## Browser compatibility
-
-For IE8 and older browsers, you will need 
-to include [excanvas](https://code.google.com/p/explorercanvas/wiki/Instructions). 
-You will also need [shims](https://github.com/es-shims/es5-shim) for ES5 functions and
-[getComputedStyle shim](https://github.com/Financial-Times/polyfill-service/blob/master/polyfills/getComputedStyle/polyfill.js).
-
-```html
-<head>
-<!--[if lt IE 9]>
-  <script src="excanvas.js"></script>
-  <script src="es5-shim.js"></script>
-  <script src="ie8-polyfill-getComputedStyle.js"></script>
-  <script>document.defaultView = window;</script>
-<![endif]-->
-</head>
-```
-
 # Contributing
  
 Pull requests welcome!
 
-1. Fork the repo
-1. Make your changes
-1. Run tests: `npm test`
-1. Submit pull request
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Contributors
 
@@ -194,5 +208,5 @@ Jerome Touffe-Blin, [@jtblin](https://twitter.com/jtblin), [About me](http://abo
 
 # License
 
-angular-chart.js is copyright 2015 Jerome Touffe-Blin and contributors. 
+angular-chart.js is copyright 2016 Jerome Touffe-Blin and contributors. 
 It is licensed under the BSD license. See the include LICENSE file for details.

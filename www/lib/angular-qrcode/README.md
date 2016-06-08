@@ -7,6 +7,15 @@ An AngularJS directive to creates QR Codes using Kazuhiko Arase’s [qrcode-gene
 
 [See it in action](http://monospaced.github.io/angular-qrcode).
 
+Important!
+-----
+
+The `version` and `error-correction-level` parameters are very important.
+
+__The selected `version` and `error-correction-level` must give a high enough capacity for the amount of `data` (bits) you are encoding, or the `qrcode` will not render__.
+
+For more information see http://www.qrcode.com/en/about/version.html.
+
 Usage
 -----
 
@@ -30,14 +39,14 @@ as a link to URL
 
 with expressions, observe changes
 
-    <qrcode version="{{version}}" error-correction-level="{{level}}" size="{{size}}" data="{{var}} href={{var}} download"></qrcode>
+    <qrcode version="{{version}}" error-correction-level="{{level}}" size="{{size}}" data="{{var}}" href="{{var}}" download></qrcode>
 
 Options
 -------
 
 Permitted values
 
-* version: 1-10
+* version: 1-40
 
 * error-correction-level: 'L', 'M', 'Q', 'H'
 

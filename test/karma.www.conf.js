@@ -5,7 +5,7 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         autoWatch: true,
         files: [
-            'www/lib/ionic/js/ionic.bundle.js',
+            'www/lib/ionic/release/js/ionic.bundle.js',
             'www/lib/angular-resource/angular-resource.js',
             'www/lib/angular-mocks/angular-mocks.js',
             'www/lib/ionic-ion-horizontal-scroll-cards/ionic.hscrollcards.js',
@@ -17,7 +17,9 @@ module.exports = function (config) {
             "www/lib/moment/moment.js",
             "www/lib/angular-moment/angular-moment.js",
             "www/lib/ionic.contrib.frostedGlass.js",
-
+            "www/lib/Chart.js/dist/Chart.bundle.js",
+            "www/lib/angular-chart.js/dist/angular-chart.js",
+            
             'www/js/**/*.js',
             'test/unit/**/*.spec.js'
         ]

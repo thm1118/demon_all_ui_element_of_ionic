@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>angular echarts directives</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="vendor/echarts/build/dist/echarts-all.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <!-- <script src="../dist/angular&#45;echarts.min.js"></script> -->
+    <script src="src/directive.js"></script>
+    <script src="src/util.js"></script>
+    <script src="src/theme.js"></script>
+    <script src="src/theme/infographic.js"></script>
+    <script src="src/theme/macarons.js"></script>
+    <script src="src/theme/shine.js"></script>
+    <script src="src/theme/dark.js"></script>
+    <script src="src/theme/green.js"></script>
+    <script src="src/theme/blue.js"></script>
+    <script src="src/theme/red.js"></script>
+    <script src="docs/docs.js"></script>
+
+</head>
+
+<body class="ng-cloak" ng-app="docs">
+
+<div class="container">
+
+    <h2 class="page-header">Angular Echarts <small>Angular bindings for baidu echarts</small></h2>
+
+    <h3 class="page-header">Line Chart</h3>
+    <div ng-controller="LineChartController">
+        <line-chart config="config" data="data"></line-chart>
+        <line-chart config="config" data="multiple"></line-chart>
+    </div>
+
+    <h3 class="page-header">Bar Chart</h3>
+    <div ng-controller="BarChartController">
+        <bar-chart config="config" data="data"></bar-chart>
+        <bar-chart config="config" data="multiple"></bar-chart>
+    </div>
+
+    <h3 class="page-header">Area Chart</h3>
+    <div ng-controller="AreaChartController">
+        <area-chart config="config" data="data"></area-chart>
+        <area-chart config="config" data="multiple"></area-chart>
+    </div>
+
+    <h3 class="page-header">Pie Chart</h3>
+    <div ng-controller="PieChartController">
+        <pie-chart config="config" data="data"></pie-chart>
+        <donut-chart config="config" data="data"></donut-chart>
+    </div>
+
+    <h3 class="page-header">Gauge Chart</h3>
+    <div ng-controller="GaugeChartController">
+        <gauge-chart config="config" data="data"></gauge-chart>
+    </div>
+
+    <h3 class="page-header">Radar Chart</h3>
+    <div ng-controller="RadarChartController">
+        <radar-chart config="config" data="data"></radar-chart>
+    </div>
+
+    <h3 class="page-header">Map Chart</h3>
+    <div ng-controller="MapChartController">
+        <map-chart config="config.nation" data="data.nation"></map-chart>
+        <map-chart config="config.province" data="data.province" ng-show="showDetail"></map-chart>
+    </div>
+
+    <h3 class="page-header">Ajax Data</h3>
+    <div ng-controller="AjaxChartController">
+        <line-chart config="config" data="data" height="450"></line-chart>
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

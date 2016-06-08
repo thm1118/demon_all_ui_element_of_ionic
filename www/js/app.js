@@ -1,6 +1,6 @@
 (function () {
     var app = angular.module('starter',
-        ['ionic','ngIOS9UIWebViewPatch','ionicLazyLoad', 'ngMockE2E', 'ionic-datepicker', 'jett.ionic.filter.bar', 'ionic.contrib.frostedGlass', 'ion-autocomplete',
+        ['ionic','ngCookies', 'ionicLazyLoad', 'ngMockE2E', 'ionic-datepicker', 'jett.ionic.filter.bar', 'ionic.contrib.frostedGlass', 'ion-autocomplete',
             'ionic.ion.autoListDivider','ionic.contrib.ui.hscrollcards','ion-gallery','monospaced.qrcode',
             'angular-echarts', 'chart.js', 'starter.controllers', 'starter.services']);
 
@@ -84,6 +84,16 @@
             $httpBackend.whenHEAD('http://api.randomuser.me/?results=30').passThrough();
 
         })
+
+        /**
+         * angularjs-authentication 相关的 cookie使用
+         * To make for CSRF, we can tell $http to set the correct header for CSRF
+         * (might depend on your server framework, this one is for Django) using the specific cookie name:
+         * 详细参见：http://blog.ionic.io/angularjs-authentication/
+         * */
+        .run(['$http', '$cookies', function($http, $cookies) {
+            $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+        }])
 
         .config(function ($httpProvider, $ionicFilterBarConfigProvider) {
             $httpProvider.interceptors.push('AuthInterceptor');
@@ -364,4 +374,7 @@
             $urlRouterProvider.otherwise('/app/url_qrcode');
         });
 
+    /** todo: angular-chat  未实现包括水平柱状图指令，因此在这里新建一个，如果该组件实现了，需要去掉这个指令*/
+    angular.module('chart.js')
+        .directive('chartHorizontalBar', function (ChartJsFactory) { return new ChartJsFactory('horizontalBar'); });
 }());

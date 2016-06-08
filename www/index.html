@@ -7,11 +7,11 @@
 
     <!-- inject:css -->
     <!-- 样式引用都放在这里面-->
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/release/css/ionic.css" rel="stylesheet">
     <!-- 如果使用Sass (run gulp sass first), 就移除上面的css引用，取消下面的注释
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-    <link href="lib/angular-chart.js/dist/angular-chart.css" rel="stylesheet">
+    <!--<link href="lib/angular-chart.js/dist/angular-chart.css" rel="stylesheet">-->
     <link href="css/ionic.contrib.frostedGlass.css" rel="stylesheet">
     <link href="lib/ion-autocomplete/dist/ion-autocomplete.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
@@ -29,8 +29,8 @@
 
     <!-- inject:js -->
     <!--脚本都放在这里面，以此为基础开发，注意移除不需要的引用, 同时在bower.json里面修改。发布需要在assets.json里修改-->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch.js"></script>
+    <script src="lib/ionic/release/js/ionic.bundle.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
     <script src="lib/angular-mocks/angular-mocks.js"></script>
     <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
@@ -40,7 +40,7 @@
     <script src="lib/ionic-ion-horizontal-scroll-cards/ionic.hscrollcards.js"></script>
     <script src="lib/ion-autocomplete/dist/ion-autocomplete.js"></script>
     <script src="lib/ionic-ion-autoListDivider.js"></script>
-    <script src="lib/ion-gallery/dist/ion.gallery.min.js"></script>
+    <script src="lib/ion-gallery/dist/ion-gallery.js"></script>
     <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
     <script src="lib/lodash.mobile.js"></script>
     <script src="lib/moment/moment.js"></script>
@@ -48,11 +48,12 @@
     <script src="lib/ionic.contrib.frostedGlass.js"></script>
     <script src="lib/ion-image-lazy-load/ionic-image-lazy-load.js"></script>
     <!--注意百度echart js的引用应有其他精简方式-->
-    <script src="lib/baidu-echarts/build/echarts-plain-original.js"></script>
-    <script src="lib/baidu-echarts/build/echarts-plain-map.js"></script>
+    <script src="lib/echarts/dist/echarts.js"></script>
+    <!--<script src="lib/echarts/build/echarts-plain-map.js"></script>-->
     <script src="lib/angular-echarts/dist/angular-echarts.js"></script>
 
-    <script src="lib/Chart.js/Chart.js"></script>
+    <script src="lib/Chart.js/dist/Chart.bundle.js"></script>
+    <!--<script src="lib/Chart.HorizontalBar.js/Chart.HorizontalBar.js"></script>-->
     <script src="lib/angular-chart.js/dist/angular-chart.js"></script>
     <script src="js/app.js"></script>
     <script src="js/constants.js"></script>

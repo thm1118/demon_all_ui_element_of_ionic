@@ -1,9 +1,9 @@
-IONIC 功能全演示
+Angular Mobile演示
 =====================
 
 - 使用Ionic提供的UI 组件。Ionic本身是致力于建立统一的移动混合app构建平台，核心基础是Angular+Cordova。
 - 通过Angular指令封装，以及预定义的CSS，提供了开箱即用的HTML5 Mobile组件。
-- 构建与开发支持，能够直接运行www目录下的index.html进行开发调试。同时也支持发布人员利用gulp构建输出到dist目录
+- 构建与开发支持：在缺乏node支持环境下(有的人环境死活搭不起来)，能够直接运行www目录下的index.html进行开发调试。同时也支持发布人员利用gulp构建输出到dist目录
 - 利用gulp，同样演示了单元测试以及场景测试。
 - [在线演示，内有地址二维码，可手机浏览](http://1.thm1118.sinaapp.com/static/ionic/www/index.html)
 
@@ -19,13 +19,6 @@ IONIC 功能全演示
 ![幻灯](screenshot/slide.png)
 ![图片水平滚动](screenshot/hscroll.png)
 ![毛玻璃效果](screenshot/blure.png)
-![2000条数据搜索](screenshot/search.png)
-![输入自动完成](screenshot/autocomplete.png)
-![列表自动分组](screenshot/autogroup.png)
-![媒体相册](screenshot/galaxy.png)
-![chartjs统计图](screenshot/chartjs.png)
-![百度统计图](screenshot/echat.png)
-![图片延时加载](screenshot/imageload.png)
 
 ## 基础环境
 
@@ -41,8 +34,7 @@ IONIC 功能全演示
 
 简单开发可以不依赖nodejs环境。但是有了基于nodejs的javascript完整开发周期环境，会极大提升开发效率，保障质量。
 
-- nodejs 最新版。
-- 有些node包的安装需要c++编译，x86版本只需要 x86的C++编译器，windows上的x64 c++编译器需要特别设置。
+- nodejs 最新版(已测试版本：v4.x，v5.3.0, v6.2.0）。
 - npm 会很慢，要么使用代理，要么使用国内镜像，比如 [淘宝镜像](http://npm.taobao.org/) , 使用淘宝镜像后，npm命令需要替换成cnpm命令。
 - `npm install -g gulp`
 - `npm install -g ionic`
@@ -154,4 +146,23 @@ IONIC 功能全演示
 - 微信浏览器的android版本，默认使用其内置的腾讯浏览器，其兼容性有一定问题，比如水平滚动图片
 - 测试中增加性能计数 [protractor-perf](https://github.com/axemclion/protractor-perf)
 
+
+## 变更日志
+### 2016-05-27 
+
+- 更新ionic到1.3.1，依赖angular版本1.5.3 
+- 其他第三方插件存在一些兼容性问题待测试
+
+### 2016-04-28
+ 
+- 更新ionic到1.3.0，这个版本虽然是4.21发布，但是似乎还有问题，需要等待下个修复版本
+- 已知问题：ionic这个版本blog说明是依赖于angular1.5.5，但是其内部依赖依然是1.4.3，导致手动写了animate等版本依赖
+- chartjs，echarts版本 都已更新，但已有的angular版本都有问题
+- 其他一些兼容性问题待测试
+
+### 2015-12-29
+
+- 更新ionic到1.2.1, 移除原来1.0时引用的IOS补丁
+- 更新package.json 与 bowe.json 内各引用库版本到最新
+- 已知问题：百度echart的angular封装有兼容性问题
 

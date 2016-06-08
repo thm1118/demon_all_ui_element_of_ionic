@@ -1,11 +1,11 @@
 (function () {
   'use strict';
 
+  var fs = require('fs');
+  var path = require('path');
   var gulp = require('gulp');
-  var less = require('gulp-less');
   var sourcemaps = require('gulp-sourcemaps');
   var uglify = require('gulp-uglify');
-  var csso = require('gulp-csso');
   var jshint = require('gulp-jshint');
   var stylish = require('jshint-stylish');
   var jscs = require('gulp-jscs');
@@ -16,17 +16,15 @@
   var git = require('gulp-git');
   var shell = require('gulp-shell');
   var rename = require('gulp-rename');
-  var fs = require('fs');
   var sequence = require('gulp-sequence');
-  var ngAnnotate = require('gulp-ng-annotate');
+  var rimraf = require('gulp-rimraf');
+  var istanbul = require('gulp-istanbul');
+  var istanbulReport = require('gulp-istanbul-report');
+  var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
-  gulp.task('less', function () {
-    return gulp.src('./*.less')
-      .pipe(sourcemaps.init())
-      .pipe(less())
-      .pipe(csso())
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./dist'));
+  gulp.task('clean', function () {
+    return gulp.src('./dist/*', { read: false })
+      .pipe(rimraf());
   });
 
   gulp.task('lint', function () {
@@ -40,22 +38,33 @@
       .pipe(jscs());
   });
 
-  gulp.task('cover', shell.task([
-    './node_modules/istanbul/lib/cli.js instrument angular-chart.js > test/fixtures/coverage.js'
-  ]));
+  gulp.task('cover', function () {
+    return gulp.src('angular-chart.js')
+      .pipe(istanbul({ coverageVariable: '__coverage__' }))
+      .pipe(rename('coverage.js'))
+      .pipe(gulp.dest('test/fixtures'));
+  });
 
-  gulp.task('unit', shell.task([
-    './node_modules/mocha-phantomjs/bin/mocha-phantomjs -R spec test/index.html -k mocha-phantomjs-istanbul'
-  ]));
+  gulp.task('unit', function () {
+    return gulp.src('test/index.html', { read: false })
+      .pipe(mochaPhantomJS({
+        phantomjs: {
+          hooks: 'mocha-phantomjs-istanbul',
+          coverageFile: 'coverage/coverage.json'
+        },
+        reporter: process.env.REPORTER || 'spec'
+    }));
+  });
 
   gulp.task('integration', function () {
-    return gulp.src('test/test.integration.js', {read: false})
+    return gulp.src(path.join('test', 'test.integration.js'), { read: false })
       .pipe(mocha({ reporter: 'list', timeout: 20000, require: 'test/support/setup.js' }));
   });
 
-  gulp.task('report', shell.task([
-    './node_modules/istanbul/lib/cli.js report --include coverage/coverage.json'
-  ]));
+  gulp.task('report', function () {
+    return gulp.src('coverage/coverage.json')
+      .pipe(istanbulReport({ reporters: ['lcov'] }));
+  });
 
   gulp.task('bump-patch', bump('patch'));
   gulp.task('bump-minor', bump('minor'));
@@ -63,14 +72,12 @@
 
   gulp.task('bower', function () {
     return gulp.src('./angular-chart.js')
-      .pipe(ngAnnotate({single_quotes: true}))
       .pipe(gulp.dest('./dist'));
   });
 
   gulp.task('js', ['lint', 'style', 'bower'], function () {
     return gulp.src('./angular-chart.js')
       .pipe(rename('angular-chart.min.js'))
-      .pipe(ngAnnotate({single_quotes: true}))
       .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(sourcemaps.write('./'))
@@ -94,7 +101,7 @@
 
   gulp.task('git-commit', function () {
     var v = version();
-    gulp.src(['./dist/*', './package.json', './bower.json', './examples/charts.html'])
+    gulp.src(['./dist/*', './package.json', './bower.json', './examples/charts.html', './test/fixtures/coverage.js'])
       .pipe(git.add())
       .pipe(git.commit(v))
     ;
@@ -117,9 +124,12 @@
 
   gulp.task('watch', function () {
     gulp.watch('./*.js', ['js']);
-    gulp.watch('./*.less', ['less']);
     return true;
   });
+
+  gulp.task('docker-test', shell.task([
+    'npm run docker-test'
+  ]));
 
   function bump (level) {
     return function () {
@@ -133,7 +143,8 @@
     return JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
   }
 
-  gulp.task('default', sequence('check', ['less', 'js'], 'build'));
+  gulp.task('default', sequence('docker-test', 'assets'));
+  gulp.task('assets', sequence('clean', 'js', 'build'));
   gulp.task('test', sequence('cover', 'unit', 'integration', 'report'));
   gulp.task('check', sequence(['lint', 'style'], 'test'));
   gulp.task('deploy-patch', sequence('default', 'bump-patch', 'update', 'git-commit', 'git-push', 'npm'));

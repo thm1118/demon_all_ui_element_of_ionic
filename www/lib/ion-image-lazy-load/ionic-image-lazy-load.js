@@ -3,34 +3,26 @@
  * Updated by Ross Martin on 12/05/2014
  * Updated by Davide Pastore on 04/14/2015
  * Updated by Michel Vidailhet on 05/12/2015
+ * Updated by Rene Korss on 11/25/2015
  */
 
 angular.module('ionicLazyLoad', []);
 
 angular.module('ionicLazyLoad')
 
-.directive('lazyScroll', ['$rootScope', '$timeout', 
-    function($rootScope, $timeout) {
+.directive('lazyScroll', ['$rootScope',
+    function($rootScope) {
         return {
             restrict: 'A',
             link: function ($scope, $element) {
-
-                var scrollTimeoutId = 0;
-
-                $scope.invoke = function () {
+                var origEvent = $scope.$onScroll;
+                $scope.$onScroll = function () {
                     $rootScope.$broadcast('lazyScrollEvent');
+
+                    if(typeof origEvent === 'function'){
+                      origEvent();
+                    }
                 };
-
-                $element.bind('scroll', function () {
-
-                    $timeout.cancel(scrollTimeoutId);
-
-                    // wait and then invoke listeners (simulates stop event)
-                    scrollTimeoutId = $timeout($scope.invoke, 0);
-
-                });
-
-
             }
         };
 }])
@@ -41,7 +33,8 @@ angular.module('ionicLazyLoad')
             restrict: 'A',
             scope: {
                 lazyScrollResize: "@lazyScrollResize",
-                imageLazyBackgroundImage: "@imageLazyBackgroundImage"
+                imageLazyBackgroundImage: "@imageLazyBackgroundImage",
+                imageLazySrc: "@"
             },
             link: function ($scope, $element, $attributes) {
                 if (!$attributes.imageLazyDistanceFromBottomToLoad) {
@@ -51,13 +44,36 @@ angular.module('ionicLazyLoad')
                     $attributes.imageLazyDistanceFromRightToLoad = 0;
                 }
 
+                var loader;
                 if ($attributes.imageLazyLoader) {
-                    var loader = $compile('<div class="image-loader-container"><ion-spinner class="image-loader" icon="' + $attributes.imageLazyLoader + '"></ion-spinner></div>')($scope);
+                    loader = $compile('<div class="image-loader-container"><ion-spinner class="image-loader" icon="' + $attributes.imageLazyLoader + '"></ion-spinner></div>')($scope);
                     $element.after(loader);
                 }
 
+                $scope.$watch('imageLazySrc', function (oldV, newV) {
+                    if(loader)
+                        loader.remove();
+                    if ($attributes.imageLazyLoader) {
+                        loader = $compile('<div class="image-loader-container"><ion-spinner class="image-loader" icon="' + $attributes.imageLazyLoader + '"></ion-spinner></div>')($scope);
+                        $element.after(loader);
+                    }
+                    var deregistration = $scope.$on('lazyScrollEvent', function () {
+                        //    console.log('scroll');
+                            if (isInView()) {
+                                loadImage();
+                                deregistration();
+                            }
+                        }
+                    );
+                    $timeout(function () {
+                        if (isInView()) {
+                            loadImage();
+                            deregistration();
+                        }
+                    }, 500);
+                });
                 var deregistration = $scope.$on('lazyScrollEvent', function () {
-                        //console.log('scroll');
+                       // console.log('scroll');
                         if (isInView()) {
                             loadImage();
                             deregistration();
@@ -75,6 +91,7 @@ angular.module('ionicLazyLoad')
                             //Call the resize to recalculate the size of the screen
                             $ionicScrollDelegate.resize();
                         }
+                        $element.unbind("load");
                     });
 
                     if ($scope.imageLazyBackgroundImage == "true") {

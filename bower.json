@@ -1,22 +1,28 @@
 {
-  "name": "Angular with Ionic seed",
+  "name": "angular-with-ionic-seed",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.0",
-    "angular-ios9-uiwebview-patch": "~1.1.1"
+    "ionic": "driftyco/ionic-bower"
   },
   "dependencies": {
-    "angular-moment": "^0.10.1",
-    "ionic-filter-bar": "^1.0.4",
-    "ion-autocomplete": "^0.2.3",
-    "angular-mocks": "~1.4.4",
-    "angular-resource": "~1.4.4",
+    "angular-cookies": "~1.5",
+    "angular-mocks": "~1.5",
+    "angular-resource": "~1.5",
+    "angular-moment": "^1.0.0-beta.6",
+    "ionic-filter-bar": "^1.1.1",
+    "ion-autocomplete": "^0.3.2",
     "ionic-ion-horizontal-scroll-cards": "*",
     "ion-gallery": "*",
-    "angular-qrcode": "monospaced/angular-qrcode#~6.0.3",
-    "angular-echarts": "~0.2.1",
-    "angular-chart.js": "~0.8.1",
-    "ionic-datepicker": "~0.9.0",
-    "ion-image-lazy-load": "*"
+    "angular-qrcode": "monospaced/angular-qrcode#~6.2.1",
+    "angular-echarts": "~0.3.5",
+    "echarts": "3.1.7",
+    "angular-chart.js": "~1.0.0-alpha6",
+    "ionic-datepicker": "~1.1.0",
+    "ion-image-lazy-load": "*",
+    "Chart.HorizontalBar.js": "chart.horizontalbar#^1.0.3",
+    "Chart.js": "^2.1.4"
+  },
+  "resolutions": {
+    "angular": "~1.5"
   }
 }

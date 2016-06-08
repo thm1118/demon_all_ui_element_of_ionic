@@ -1,20 +1,23 @@
 {
   "name": "qrcode-generator",
-  "version": "0.0.2",
-  "main": "js/qrcode.js",
+  "version": "0.1.0",
+  "main": [
+    "js/qrcode.js",
+    "js/qrcode_UTF8.js"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
   ],
   "homepage": "https://github.com/monospaced/bower-qrcode-generator",
-  "_release": "0.0.2",
+  "_release": "0.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.2",
-    "commit": "89d69b96ba933842a7ed0141382b62158dcfafa0"
+    "tag": "v0.1.0",
+    "commit": "64e898f180fbd76aa2740be41124d219aa735f0c"
   },
   "_source": "git://github.com/monospaced/bower-qrcode-generator.git",
-  "_target": "0.0.2",
+  "_target": "v0.1.0",
   "_originalSource": "git://github.com/monospaced/bower-qrcode-generator.git"
 }

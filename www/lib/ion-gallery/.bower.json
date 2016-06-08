@@ -1,7 +1,8 @@
 {
   "name": "ion-gallery",
+  "version": "0.1.14",
   "description": "Ionic gallery directive",
-  "main": "ion-gallery.min.js",
+  "main": "dist/ion-gallery.min.js",
   "keywords": [
     "ionic",
     "gallery",
@@ -19,16 +20,17 @@
     "tests"
   ],
   "devDependencies": {
-    "angular-mocks": "~1.4.0"
+    "angular-mocks": "~1.4.0",
+    "ionic": "~1.1.0"
   },
   "homepage": "https://github.com/pedroabreu/ion-gallery",
-  "_release": "5444b481d6",
+  "_release": "0.1.14",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "5444b481d6e5ccb840a2c6696afc62efe78f08cf"
+    "type": "version",
+    "tag": "0.1.14",
+    "commit": "de97aea75e287b27e73adf048f5766cfe0b218dd"
   },
-  "_source": "git://github.com/pedroabreu/ion-gallery.git",
+  "_source": "https://github.com/pedroabreu/ion-gallery.git",
   "_target": "*",
   "_originalSource": "ion-gallery"
 }

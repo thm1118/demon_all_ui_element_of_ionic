@@ -15,14 +15,29 @@
     };
 
     function link(scope, element, attrs) {
-      element.bind("load" , function(e){ 
-        
-        if(this.naturalHeight > this.naturalWidth){
+      
+      var scaleImage = function(context,value) {
+        if(value>0){
+          if(context.naturalHeight >= context.naturalWidth){
             element.attr('width','100%');
+          }
+          else{
+            element.attr('height',element.parent()[0].offsetHeight+'px');
+          }
+        } 
+      };
+      
+      element.bind("load" , function(e){
+        var _this = this;
+        if(element.parent()[0].offsetHeight > 0){
+          scaleImage(this,element.parent()[0].offsetHeight);
         }
-        else{
-          element.attr('height',element.parent()[0].offsetHeight+'px');
-        }
+        
+        scope.$watch(function(){
+          return element.parent()[0].offsetHeight;
+        },function(newValue){
+          scaleImage(_this,newValue);
+        });
       });
     }
   }
